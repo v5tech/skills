@@ -5,6 +5,13 @@ description: "Guide for searching, comparing, and installing skills with npx ski
 
 # Skill Advisor
 
+## Output Language
+
+**IMPORTANT:** Match your output language to the user's conversation language.
+- If user writes in Chinese, respond in Chinese with Chinese section headers
+- If user writes in English, respond in English
+- Apply this to all output: section titles, table headers, descriptions, and explanations
+
 Help users search, compare, and install skills correctly to their preferred agents.
 
 ## Default Target Agents
@@ -86,6 +93,14 @@ Evaluate each skill on these dimensions:
 ### Step 4: Generate Install Commands
 
 **CRITICAL: Never use `--all` flag** — it overrides `--agent` and installs to ALL agents.
+
+**Install command generation rules:**
+1. **Only generate install commands for High quality skills**
+2. Medium quality skills are listed in "Optional" section, commands provided separately for user decision
+3. Low quality skills in "Not Recommended" section get no install commands
+
+**Group by repository:**
+If multiple High quality skills come from the same repository, group them in one command.
 
 Correct command pattern:
 ```bash

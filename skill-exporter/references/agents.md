@@ -1,14 +1,14 @@
 # Agent Display Name to --agent Mapping
 
+Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents
+
 | Display Name | --agent |
 |---|---|
-| Antigravity | antigravity |
-| Claude Code | claude-code |
-| Gemini CLI | gemini-cli |
-| OpenCode | opencode |
 | Amp | amp |
 | Kimi Code CLI | kimi-cli |
+| Antigravity | antigravity |
 | Augment | augment |
+| Claude Code | claude-code |
 | OpenClaw | openclaw |
 | Cline | cline |
 | CodeBuddy | codebuddy |
@@ -18,6 +18,7 @@
 | Crush | crush |
 | Cursor | cursor |
 | Droid | droid |
+| Gemini CLI | gemini-cli |
 | GitHub Copilot | github-copilot |
 | Goose | goose |
 | Junie | junie |
@@ -28,6 +29,7 @@
 | MCPJam | mcpjam |
 | Mistral Vibe | mistral-vibe |
 | Mux | mux |
+| OpenCode | opencode |
 | OpenClaude IDE | openclaude |
 | OpenHands | openhands |
 | Pi | pi |
