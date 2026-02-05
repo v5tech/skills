@@ -5,14 +5,9 @@ description: "Guide for searching, comparing, and installing skills with npx ski
 
 # Skill Advisor
 
-## Output Language
-
-**IMPORTANT:** Match your output language to the user's conversation language.
-- If user writes in Chinese, respond in Chinese with Chinese section headers
-- If user writes in English, respond in English
-- Apply this to all output: section titles, table headers, descriptions, and explanations
-
 Help users search, compare, and install skills correctly to their preferred agents.
+
+> **Output Language**: Match your response language to the user's conversation language. If user writes in Chinese, respond in Chinese; if in English, respond in English.
 
 ## Default Target Agents
 
@@ -47,6 +42,7 @@ npx skills add <owner/repo> -g --list
 For promising skills, read the actual SKILL.md to understand real functionality. Visit:
 ```
 https://skills.sh/<owner>/<repo>/<skill>
+# Example: https://skills.sh/expo/skills/building-native-ui
 ```
 
 **Never rely solely on skill names to judge functionality.** Names can be misleading.
@@ -142,32 +138,98 @@ ls -la ~/.config/opencode/skills/
 ls ~/.cursor/ ~/.cline/ ~/.copilot/ 2>/dev/null
 ```
 
-## Recovery: Cleanup After Mistakes
+## Recovery
 
-When installation goes wrong (e.g., used `--all` by accident):
+### Remove from Specific Agent
 
-### 1. Remove skills from all agents
+**Goal**: Remove skill from one agent while keeping it available for other agents
+
+**Operation**: Only delete the symlink, preserve source files
+
 ```bash
-# Remove specific skills from all agents
-npx skills remove -g -s <skill1> -s <skill2> --agent '*' -y
+# Remove from Claude Code only
+rm ~/.claude/skills/<skill-name>
 
-# Or use --all shorthand (equals --skill '*' --agent '*' -y)
-npx skills remove -g --all
+# Remove from Gemini CLI only
+rm ~/.gemini/skills/<skill-name>
+
+# Remove from Antigravity only
+rm ~/.gemini/antigravity/skills/<skill-name>
+
+# Remove from OpenCode only
+rm ~/.config/opencode/skills/<skill-name>
 ```
 
-### 2. Identify and clean empty directories
+Source files in `~/.agents/skills/` remain intact. Other agents can still use this skill.
+
+### Remove from All Agents
+
+**Goal**: Fully remove skill, delete source files, clean all symlinks
+
+**Operation**: Use CLI to delete source files, then manually clean up any orphaned symlinks
+
+```bash
+# Step 1: CLI removes source files + lock records + detected symlinks
+npx skills remove -g -s <skill-name> -y
+
+# Step 2: Clean up any remaining orphaned symlinks (CLI may miss some agents)
+for dir in ~/.claude/skills ~/.gemini/skills ~/.gemini/antigravity/skills ~/.config/opencode/skills; do
+  [ -L "$dir/<skill-name>" ] && rm "$dir/<skill-name>" && echo "Cleaned: $dir/<skill-name>"
+done
+```
+
+### Reinstall to Specific Agents
+
+**Goal**: Clean removal then reinstall to specified agents
+
+**Operation**: Use CLI to delete source files, clean symlinks for target agents, then reinstall
+
+```bash
+# Step 1: CLI removes source files + lock records
+npx skills remove -g -s <skill-name> -y
+
+# Step 2: Clean up symlinks for target agents
+for dir in ~/.claude/skills ~/.gemini/skills ~/.gemini/antigravity/skills ~/.config/opencode/skills; do
+  [ -L "$dir/<skill-name>" ] && rm "$dir/<skill-name>" && echo "Cleaned: $dir/<skill-name>"
+done
+
+# Step 3: Reinstall to specified agents
+npx skills add <owner/repo> -g -s <skill-name> -a antigravity -a claude-code -a gemini-cli -a opencode -y
+```
+
+### Batch Cleanup
+
+When installation went wrong (e.g., used `--all` by accident):
+
+#### 1. Remove skills source files
+```bash
+# Remove specific skill (CLI handles lock file)
+npx skills remove -g -s <skill-name> -y
+
+# Or remove multiple skills
+npx skills remove -g -s <skill1> -s <skill2> -y
+```
+
+#### 2. Clean up all symlinks
+```bash
+for dir in ~/.claude/skills ~/.gemini/skills ~/.gemini/antigravity/skills ~/.config/opencode/skills; do
+  [ -d "$dir" ] && find "$dir" -maxdepth 1 -type l -delete -print
+done
+```
+
+#### 3. Clean empty agent directories
 Check each non-target agent directory. Only delete if:
 - Directory was newly created by skills CLI
 - Contains only an empty `skills/` subdirectory
-- Has no other files (file count = 0)
+- Has no other files
 
 ```bash
-# Check a directory before deleting
+# Check before deleting
 ls -la ~/.cursor/
 find ~/.cursor/ -type f | wc -l  # Must be 0 to safely delete
 ```
 
-### 3. Reinstall correctly
+#### 4. Reinstall correctly
 ```bash
 npx skills add <owner/repo> -g -s <skill1> -s <skill2> -a antigravity -a claude-code -a gemini-cli -a opencode -y
 ```
@@ -192,7 +254,7 @@ See `references/agents.md` for the complete list of all 39 agents and their glob
 
 ## Common Pitfalls
 
-1. **`--all` flag**: Overrides `--agent`, installs to 40+ agents, creates unwanted directories
+1. **`--all` flag**: Overrides `--agent`, installs to 39+ agents, creates unwanted directories
 2. **Forgetting `-g`**: Without global flag, installs to project only
 3. **Missing `-s`**: Without specifying skills, may install all or prompt interactively
 4. **Trusting skill names**: Always read SKILL.md content before recommending
