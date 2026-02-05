@@ -30,7 +30,6 @@ Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-ag
 | Mistral Vibe | mistral-vibe |
 | Mux | mux |
 | OpenCode | opencode |
-| OpenClaude IDE | openclaude |
 | OpenHands | openhands |
 | Pi | pi |
 | Qoder | qoder |

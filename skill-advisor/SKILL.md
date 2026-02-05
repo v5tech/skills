@@ -116,11 +116,10 @@ npx skills add <owner/repo> -g -s <skill1> -s <skill2> -a antigravity -a claude-
 | `-y, --yes` | Skip confirmation |
 | `-l, --list` | List available skills without installing |
 | `--all` | Install all skills to all agents without prompts |
-| `--full-depth` | Search all subdirectories even when a root SKILL.md exists |
 
 **Wrong vs Right:**
 ```bash
-# WRONG — --all overrides -a, installs to ALL 40+ agents
+# WRONG — --all overrides -a, installs to ALL 39+ agents
 npx skills add expo/skills -g -a antigravity -a claude-code -a gemini-cli -a opencode --all
 
 # RIGHT — repeat -s for each skill, -a for each agent
@@ -136,7 +135,7 @@ npx skills ls -g
 # Check symlinks are valid in each agent directory
 ls -la ~/.claude/skills/
 ls -la ~/.gemini/skills/
-ls -la ~/.gemini/antigravity/global_skills/
+ls -la ~/.gemini/antigravity/skills/
 ls -la ~/.config/opencode/skills/
 
 # Verify no extra agent directories created
@@ -182,11 +181,11 @@ npx skills update    # Update all installed skills
 
 ## Agent Directory Reference
 
-See `references/agents.md` for the complete list of all 40 agents and their global paths.
+See `references/agents.md` for the complete list of all 39 agents and their global paths.
 
 | Agent | Global Path |
 |-------|-------------|
-| Antigravity | ~/.gemini/antigravity/global_skills/ |
+| Antigravity | ~/.gemini/antigravity/skills/ |
 | Claude Code | ~/.claude/skills/ |
 | Gemini CLI | ~/.gemini/skills/ |
 | OpenCode | ~/.config/opencode/skills/ |
