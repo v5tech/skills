@@ -1,15 +1,16 @@
 # Agent Display Name to --agent Mapping
 
-Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents
+Map display names from `npx skills ls -g` output to CLI `--agent` values.
+
+Source: https://github.com/vercel-labs/skills#supported-agents
 
 | Display Name | --agent |
-|---|---|
+|--------------|---------|
+| AdaL | adal |
 | Amp | amp |
-| Kimi Code CLI | kimi-cli |
 | Antigravity | antigravity |
 | Augment | augment |
 | Claude Code | claude-code |
-| OpenClaw | openclaw |
 | Cline | cline |
 | CodeBuddy | codebuddy |
 | Codex | codex |
@@ -21,17 +22,21 @@ Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-ag
 | Gemini CLI | gemini-cli |
 | GitHub Copilot | github-copilot |
 | Goose | goose |
-| Junie | junie |
 | iFlow CLI | iflow-cli |
+| Junie | junie |
 | Kilo Code | kilo |
+| Kimi Code CLI | kimi-cli |
 | Kiro CLI | kiro-cli |
 | Kode | kode |
 | MCPJam | mcpjam |
 | Mistral Vibe | mistral-vibe |
 | Mux | mux |
+| Neovate | neovate |
+| OpenClaw | openclaw |
 | OpenCode | opencode |
 | OpenHands | openhands |
 | Pi | pi |
+| Pochi | pochi |
 | Qoder | qoder |
 | Qwen Code | qwen-code |
 | Replit | replit |
@@ -40,6 +45,3 @@ Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-ag
 | Trae CN | trae-cn |
 | Windsurf | windsurf |
 | Zencoder | zencoder |
-| Neovate | neovate |
-| Pochi | pochi |
-| AdaL | adal |

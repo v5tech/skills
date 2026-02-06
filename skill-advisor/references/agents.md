@@ -1,10 +1,16 @@
-# Complete Agent Directory Reference
+# Agent Directory Reference
 
-Reference: https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents
+All 39 agents supported by the Skills CLI.
 
-All 39 agents supported by the Skills CLI, with their --agent values and global paths.
+Source: https://github.com/vercel-labs/skills#supported-agents
 
-## Target Agents (Default)
+## Contents
+
+- [Default Target Agents](#default-target-agents)
+- [All Other Agents](#all-other-agents)
+- [Valid --agent Names](#valid---agent-names)
+
+## Default Target Agents
 
 | Agent | --agent | Global Path |
 |-------|---------|-------------|
@@ -17,8 +23,9 @@ All 39 agents supported by the Skills CLI, with their --agent values and global 
 
 | Agent | --agent | Global Path |
 |-------|---------|-------------|
-| Amp, Kimi Code CLI | amp, kimi-cli | ~/.config/agents/skills/ |
-| Augment | augment | ~/.augment/rules/ |
+| Amp | amp | ~/.config/agents/skills/ |
+| Kimi Code CLI | kimi-cli | ~/.config/agents/skills/ |
+| Augment | augment | ~/.augment/skills/ |
 | OpenClaw | openclaw | ~/.moltbot/skills/ |
 | Cline | cline | ~/.cline/skills/ |
 | CodeBuddy | codebuddy | ~/.codebuddy/skills/ |
@@ -42,7 +49,7 @@ All 39 agents supported by the Skills CLI, with their --agent values and global 
 | Pi | pi | ~/.pi/agent/skills/ |
 | Qoder | qoder | ~/.qoder/skills/ |
 | Qwen Code | qwen-code | ~/.qwen/skills/ |
-| Replit | replit | N/A (project-only) |
+| Replit | replit | ~/.config/agents/skills/ |
 | Roo Code | roo | ~/.roo/skills/ |
 | Trae | trae | ~/.trae/skills/ |
 | Trae CN | trae-cn | ~/.trae-cn/skills/ |
@@ -52,10 +59,10 @@ All 39 agents supported by the Skills CLI, with their --agent values and global 
 | Pochi | pochi | ~/.pochi/skills/ |
 | AdaL | adal | ~/.adal/skills/ |
 
-## All Valid --agent Names
+## Valid --agent Names
 
 ```
 amp antigravity augment claude-code openclaw cline codebuddy codex command-code continue crush cursor droid gemini-cli github-copilot goose junie iflow-cli kilo kimi-cli kiro-cli kode mcpjam mistral-vibe mux opencode openhands pi qoder qwen-code replit roo trae trae-cn windsurf zencoder neovate pochi adal
 ```
 
-Note: `replit` is project-only (no global path).
+**Note**: Amp, Kimi Code CLI, and Replit share the same global path.
