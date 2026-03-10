@@ -1,6 +1,6 @@
 # Agent Directory Reference
 
-All 39 agents supported by the Skills CLI.
+All 41 agents supported by the Skills CLI.
 
 Source: https://github.com/vercel-labs/skills#supported-agents
 
@@ -26,12 +26,13 @@ Source: https://github.com/vercel-labs/skills#supported-agents
 | Amp | amp | ~/.config/agents/skills/ |
 | Kimi Code CLI | kimi-cli | ~/.config/agents/skills/ |
 | Augment | augment | ~/.augment/skills/ |
-| OpenClaw | openclaw | ~/.moltbot/skills/ |
-| Cline | cline | ~/.cline/skills/ |
+| OpenClaw | openclaw | ~/.openclaw/skills/ |
+| Cline | cline | ~/.agents/skills/ |
 | CodeBuddy | codebuddy | ~/.codebuddy/skills/ |
 | Codex | codex | ~/.codex/skills/ |
 | Command Code | command-code | ~/.commandcode/skills/ |
 | Continue | continue | ~/.continue/skills/ |
+| Cortex Code | cortex | ~/.snowflake/cortex/skills/ |
 | Crush | crush | ~/.config/crush/skills/ |
 | Cursor | cursor | ~/.cursor/skills/ |
 | Droid | droid | ~/.factory/skills/ |
@@ -53,6 +54,7 @@ Source: https://github.com/vercel-labs/skills#supported-agents
 | Roo Code | roo | ~/.roo/skills/ |
 | Trae | trae | ~/.trae/skills/ |
 | Trae CN | trae-cn | ~/.trae-cn/skills/ |
+| Universal | universal | ~/.config/agents/skills/ |
 | Windsurf | windsurf | ~/.codeium/windsurf/skills/ |
 | Zencoder | zencoder | ~/.zencoder/skills/ |
 | Neovate | neovate | ~/.neovate/skills/ |
@@ -62,7 +64,7 @@ Source: https://github.com/vercel-labs/skills#supported-agents
 ## Valid --agent Names
 
 ```
-amp antigravity augment claude-code openclaw cline codebuddy codex command-code continue crush cursor droid gemini-cli github-copilot goose junie iflow-cli kilo kimi-cli kiro-cli kode mcpjam mistral-vibe mux opencode openhands pi qoder qwen-code replit roo trae trae-cn windsurf zencoder neovate pochi adal
+amp antigravity augment claude-code openclaw cline codebuddy codex command-code continue cortex crush cursor droid gemini-cli github-copilot goose junie iflow-cli kilo kimi-cli kiro-cli kode mcpjam mistral-vibe mux opencode openhands pi qoder qwen-code replit roo trae trae-cn universal windsurf zencoder neovate pochi adal
 ```
 
-**Note**: Amp, Kimi Code CLI, and Replit share the same global path.
+**Note**: Amp, Kimi Code CLI, Replit, and Universal share the same global path.

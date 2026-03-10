@@ -92,7 +92,7 @@ Evaluate each skill:
 
 ### Step 4: Generate Install Commands
 
-**CRITICAL: Never use `--all` flag** — it overrides `--agent` and installs to ALL 39 agents.
+**CRITICAL: Never use `--all` flag** — it overrides `--agent` and installs to ALL 41 agents.
 
 **Rules:**
 1. Only generate install commands for **High** quality skills
@@ -139,7 +139,7 @@ ls -la ~/.gemini/antigravity/skills/
 ls -la ~/.config/opencode/skills/
 
 # Verify no unwanted directories
-ls ~/.cursor/ ~/.cline/ 2>/dev/null
+ls ~/.cursor/ ~/.augment/ 2>/dev/null
 ```
 
 ## Default Target Agents
@@ -151,11 +151,11 @@ ls ~/.cursor/ ~/.cline/ 2>/dev/null
 | Gemini CLI | gemini-cli | ~/.gemini/skills/ |
 | OpenCode | opencode | ~/.config/opencode/skills/ |
 
-For all 39 supported agents, read [references/agents.md](references/agents.md).
+For all 41 supported agents, read [references/agents.md](references/agents.md).
 
 ## Common Pitfalls
 
-1. **`--all` flag**: Overrides `--agent`, installs to 39 agents, creates unwanted directories
+1. **`--all` flag**: Overrides `--agent`, installs to 41 agents, creates unwanted directories
 2. **Forgetting `-g`**: Installs to project only
 3. **Missing `-s`**: May install all skills or prompt interactively
 4. **Trusting skill names**: Always read SKILL.md content

@@ -16,6 +16,7 @@ Source: https://github.com/vercel-labs/skills#supported-agents
 | Codex | codex |
 | Command Code | command-code |
 | Continue | continue |
+| Cortex Code | cortex |
 | Crush | crush |
 | Cursor | cursor |
 | Droid | droid |
@@ -43,5 +44,6 @@ Source: https://github.com/vercel-labs/skills#supported-agents
 | Roo Code | roo |
 | Trae | trae |
 | Trae CN | trae-cn |
+| Universal | universal |
 | Windsurf | windsurf |
 | Zencoder | zencoder |
